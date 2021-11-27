@@ -1,0 +1,33 @@
+<form [formGroup]="form">
+  <div>
+    <label>
+      nome:
+      <input type="text" formControlName="nome" />
+    </label>
+  </div>
+
+  <div>
+    <label>
+      sobrenome:
+      <input type="text" formControlName="sobrenome" />
+    </label>
+  </div>
+
+  <div>
+    <label>
+      idade:
+      <input type="text" formControlName="idade" />
+    </label>
+  </div>
+
+  <div>
+    <label for="estado_civil">qual seu estado civil?</label>
+    <select id="estado_civil" formControlName="estado_civil">
+      <option *ngFor="let item of items" [value]="item.value">
+        {{ item.label }}
+      </option>
+    </select>
+  </div>
+
+  <button (click)="submitForm()" [disabled]="!form.valid">enviar</button>
+</form>
